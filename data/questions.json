@@ -1,0 +1,15 @@
+{
+  "questions": [{
+    "question": "How old am I?",
+    "options": [13, 2, 26, 4, 91],
+    "correctChoice": 2
+  },{
+    "question": "What is my favorite sport?",
+    "options": ["tennis", "soccer", "ultimate", "basketball"],
+    "correctChoice": 1
+  }, {
+    "question": "How many states have I lived in?",
+    "options": [3, 5, 11, 7],
+    "correctChoice": 3
+  }]
+}
