@@ -19,20 +19,21 @@ I created 3 pages:
 * a page that summarizes the results of the quiz
 
 The api is very simple, consisting of a 2 rest-like endpoints, one for getting the number of questions, and one for getting each individual question.
-It accesses the data from a json file, which I used because it seemed to be the simplest way to solve the use case of this app. Setting up a database and a whole relational schema just seemed unnecessary, especially since it would involve setting up and hosting a database server as well - I figured sticking to the simplest solution that solves the problem is the best! Of course one could argue that planning for extensibility is important, and it is, but for this case...I'm pretty certain we aren't planning on it.
+It accesses the data from a json file, which I used because it seemed to be the simplest way to solve the use case of this app. Setting up a database and a whole relational schema just seemed unnecessary, especially since it would involve setting up and hosting a database server as well - I figured sticking to the simplest solution that solves the problem is the best! Of course we loose some potential for extensibility, but a decent amount of extension could be done from within the json file without too much trouble. It's not like a quiz is going to have thousands of entries (I hope!) and there isn't a forseen need for complex table joins, hence I decided a json data store was better than a full-on rdbms.
 To add questions, just add entries to `/data/questions.json`!
 
 The quiz page is the most interesting part of the front-end - it uses the react useState hook to keep track of the current question and how many are answered correctly, and when the last question is submitted, it forwards info on the number of correct and total questions to the results page where it is displayed.
-It uses the swr library to make calls that fetch questions from the api and display a placeholder while waiting for them to return.
+It uses useSWR to make calls that fetch questions from the api and display a placeholder while waiting for them to return.
 
 Because the specifications don't require that the result be sent to or saved on the server, I assumed that this setup (if extended to a real use) would be for a quiz that is only for an end-user's benefit; that cheating is not super important to prevent. Hence, checking for correctness is done on the client side, and a technical user could cheat by opening devtools and finding data on the correct answer.
 
 ## Ideas for improvement
 
-* The UI obviously could be improved, but was obviously not a focus of this test
+* The UI design obviously could be improved, but was not a focus of this test
 * The checking of answers could be done server-side if important to prevent cheating
-* A 'previous question' button could be included to allow users to edit previous answers; this would require a redesign of much of the quiz page.
+* A 'previous question' button could be included to allow users to edit previous answers; this would require a redesign of much of the quiz page :(
 * An error page for bad requests (non-existed quiz question id's) would be good, though if the user is just clicking through the interface, this shouldn't come up (but of course this doesn't mean we shouldn't prepare for it)
+* no tests for the api are written, only because it's something that I don't have a ton of experience in, so it would take me a little while and I've already spent the expected amount of time on this
 
 
 ## Running locally

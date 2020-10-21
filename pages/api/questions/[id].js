@@ -7,8 +7,9 @@ const getQuestionData = (id) => {
     return null
   }
   
-}  
+}
 
+// returns the question with the requested id
 export default (req, res) => {
   const { id } = req.query
   if (typeof id === 'string') {

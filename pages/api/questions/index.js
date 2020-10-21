@@ -1,5 +1,6 @@
 import { questions } from '../../../data/questions.json'
 
+// returns the number of questions in the quiz
 export default (req, res) => {
   switch (req.method) {
     case 'GET': {
