@@ -1,4 +1,4 @@
-# Problem Description
+## Problem Description
 
 Please implement a quiz-taking system.
 
@@ -9,7 +9,7 @@ Please implement a quiz-taking system.
 * The quiz only has multiple-choice questions with one right answer each
 * The app should tell the user how he or she did at the end of the quiz
 
-# My Strategy
+## My Strategy
 
 I decided to use nextjs because it provides both a front end framework (react) and a backend framework (an express-like api builder) and has a hosting solution that integrates well with it (vercel).
 
@@ -27,7 +27,7 @@ It uses the swr library to make calls that fetch questions from the api and disp
 
 Because the specifications don't require that the result be sent to or saved on the server, I assumed that this setup (if extended to a real use) would be for a quiz that is only for an end-user's benefit; that cheating is not super important to prevent. Hence, checking for correctness is done on the client side, and a technical user could cheat by opening devtools and finding data on the correct answer.
 
-# Ideas for improvement
+## Ideas for improvement
 
 * The UI obviously could be improved, but was obviously not a focus of this test
 * The checking of answers could be done server-side if important to prevent cheating
@@ -35,22 +35,29 @@ Because the specifications don't require that the result be sent to or saved on 
 * An error page for bad requests (non-existed quiz question id's) would be good, though if the user is just clicking through the interface, this shouldn't come up (but of course this doesn't mean we shouldn't prepare for it)
 
 
-# Running locally
+## Running locally
 
-* Download source from github: `placeholder`
-* cd into project folder
-* run `npm install`
-* run `npm run start`
-* visit http://localhost:3000 in your browser
+```bash
+git clone https://github.com/acalvino4/gem-test.git
+cd gem-test
+npm install
+npm run build && npm start
+```
 
-# View online on Vercel
-`Project link`
+## View online on Vercel
+
+[gem-test live website](https://gem-test.vercel.app/)
 
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 
-
-# Boilerplate generated from `create-next-app` below...
+## Boilerplate generated from `create-next-app` below...
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

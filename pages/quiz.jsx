@@ -6,6 +6,7 @@ export default function Quiz() {
   const [questionId, setQuestionId] = useState(1)
   const [numCorrect, setNumCorrect] = useState(0)
   const [currentChoice, updateCurrentChoice] = useState(null)
+  const router = useRouter()
   // if used repeatedly across a larger app, I would define this 'fetcher' function externally and import it here
   const fetcher = (...args) => fetch(...args).then(res => res.json())
   const { data: numQuestionsObj, error: error1 } = useSWR(`/api/questions`, fetcher) // could refactor to only call this the first time page loads
@@ -29,7 +30,6 @@ export default function Quiz() {
     // because the updated value of numCorrect was not being sent in router.push when I called setNumCorrect here
     if (questionId === numQuestions) { //move on to summary page
       const finalCorrect = (currentChoice === correctChoice) ? numCorrect+1 : numCorrect 
-      const router = useRouter()
       router.push({
         pathname: '/results',
         query: {
